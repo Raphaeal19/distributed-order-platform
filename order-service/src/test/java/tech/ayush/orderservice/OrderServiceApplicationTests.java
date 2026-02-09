@@ -1,4 +1,4 @@
-package com.dedoap.order_service;
+package tech.ayush.orderservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
