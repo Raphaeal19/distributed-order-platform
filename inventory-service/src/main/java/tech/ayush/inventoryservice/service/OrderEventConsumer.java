@@ -31,11 +31,11 @@ public class OrderEventConsumer {
             switch (event.getEventType()) {
                 case "ORDER_CREATED" -> {
                     log.info("Processing ORDER_CREATED event for order ID: {}", event.getOrderId());
-                    inventoryService.reserveInventory(event.getProductId(), event.getQuantity());
+                    inventoryService.reserveInventory(event.getOrderId(), event.getProductId(), event.getQuantity());
                 }
                 case "ORDER_CANCELLED" -> {
                     log.info("Processing ORDER_CANCELLED event for order ID: {}", event.getOrderId());
-                    inventoryService.releaseInventory(event.getProductId(), event.getQuantity());
+                    inventoryService.releaseInventory(event.getOrderId(), event.getProductId(), event.getQuantity());
                 }
                 default -> log.warn("Unknown event type: {}", event.getEventType());
             }
